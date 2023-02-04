@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>BMI Calculator</title>
+<script language="JavaScript">
+function Calc()
+{
+x = parseFloat(form.W.value);
+y = parseFloat(form.H.value);
+if(x > 0 && y > 0)
+{
+finalbmi= x/((y/100)**2)
+form.BMI.value = Math.round(finalbmi*10)/10
+}
+
+if (finalbmi < 18.5)
+{
+form.HEALTH.value = "You are too thin."
+document.getElementById('myImage').src='Img/p1.jpg'
+var s = new Audio('audio/danger.mp3');
+  s.play();
+}
+else if (finalbmi < 22.9) 
+{
+form.HEALTH.value = "You are regular weight."
+document.getElementById('myImage').src='Img/p2.jpg'
+}
+else if (finalbmi < 24.9)
+{
+form.HEALTH.value = "You are overweight."
+document.getElementById('myImage').src='Img/p3.jpg'
+}
+else 
+{
+form.HEALTH.value = "You are fat."
+document.getElementById('myImage').src='Img/p4.jpg'
+var s = new Audio('audio/danger.mp3');
+  s.play();
+}
+
+
+}
+</script>
+</head>
+
+<body>
+<form id="form">
+<table width="400" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td colspan="2" align="left"><h2>BMI Calculator </h2></td>
+</tr>
+<tr>
+<td width="100">Your height:</td>
+<td><input type="text" name="H"> cm</td>
+</tr>
+<tr>
+<td>Your weight:</td>
+<td><input type="text" name="W"> kg </td>
+</tr>
+<tr>
+<td></td>
+<td>
+<input type="button" value="Calculate" onclick="Calc()">
+<input type="reset" >
+</td>
+</tr>
+<tr>
+<td>Your BMI: </td>
+<td><input type="text" name="BMI"></td>
+</tr>
+<tr>
+<td>Your Status: </td>
+<td><input type="text" name ="HEALTH"> </td>
+</tr>
+<tr>
+<td></td>
+<td>
+<img src="Img/blank.jpg" id="myImage" height="50%" width="50%">
+</td>
+</tr>
+</table>
+</form>
+
+<table border="1" >
+<tr>
+<td width="100" align="center" bgcolor="#FFFF00">Category </td>
+<td width="100" align="center" bgcolor="#FFFF00">BMI</td>
+</tr>
+<tr>
+<td align="center">Too thin </td>
+<td align="center">&lt;18.5</td>
+</tr>
+<tr>
+<td align="center">Normal </td>
+<td align="center">18.5 - 22.9</td>
+</tr>
+<tr>
+<td align="center">Overweight </td>
+<td align="center">23 - 24.9</td>
+</tr>
+<tr>
+<td align="center">Fat </td>
+<td align="center">25 - 29.9</td>
+</tr>
+<tr>
+<td align="center">Too fat </td>
+<td align="center">30 & above</td>
+</tr>
+</table>
+</body>
+</html>
